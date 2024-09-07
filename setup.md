@@ -10,3 +10,5 @@ Run the following commands:
 - `pip install spacy` (installs spaCy semantic chunker library)
 - `python -m spacy download en_core_web_sm` (download 'en_core_web_sm' model used by spaCy model for semantic chunking)
 - `conda deactivate` (deactivate the environment)
+- Create folders `chunks`, `embedding`, `inputs`, `output` under root directory
+- run command `python semantic_chunker.py` to generate 
