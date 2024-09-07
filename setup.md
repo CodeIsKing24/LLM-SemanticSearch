@@ -41,3 +41,4 @@ Other useful commands:
 
 Note:
 - For pytorch installation, we can go to `https://pytorch.org/` website and scroll down to `INSTALL PYTORCH` section which will show the command to run on your machine for installation based on your existing config.
+- For windows, conda environment should be created using python 3.11 to install pytorch and other packages.
