@@ -1,0 +1,7 @@
+# Add local folders that should be ignored
+__pycache__/
+.venv/
+# chunks/
+# output/
+# embedding/
+.DS_Store
