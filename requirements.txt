@@ -1,0 +1,10 @@
+numpy
+pandas
+torch
+sentence-transformers
+streamlit
+requests
+PyPDF2
+spacy
+spacy-lookups-data
+en_core_web_sm
