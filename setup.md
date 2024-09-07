@@ -38,3 +38,6 @@ Other useful commands:
 - `conda clean --all` (cleanup cache and temporary files)
 - `pip uninstall -y -r requirements.txt` (uninstall all required files)
 - `pip cache purge` (purge cache and temporary files)
+
+Note:
+- For pytorch installation, we can go to `https://pytorch.org/` website and scroll down to `INSTALL PYTORCH` section which will show the command to run on your machine for installation based on your existing config.
