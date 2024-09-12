@@ -2,6 +2,8 @@ import numpy as np
 import torch
 import os
 import pandas as pd
+import db_util
+import tensorflow as tf
 
 from sentence_transformers import SentenceTransformer, util
 
@@ -12,12 +14,20 @@ class SSearch:
         self.chunks = []
         self.MODEL = 'msmarco-distilbert-base-v4'
         self.embedder = SentenceTransformer(self.MODEL)
-        csv_file_name = os.path.join(os.path.relpath("output/"), "output_data.csv")
-        df = pd.read_csv(csv_file_name)
+        print("Querying Database")
+        dbUtil = db_util.SqliteUtil()
+        dbUtil.create_database()
+        db_results = dbUtil.read_data()
+        #print(db_results)
+        df = pd.DataFrame(db_results)
         embedding_strings = df['vector_embedding'].tolist()
-        nd_array = [np.fromstring(embedding_string[1:-1], sep=' ') for embedding_string in embedding_strings]
-        self.embeddings = [torch.from_numpy(nd_string).float() for nd_string in nd_array]
-        #self.embeddings = [np.fromstring(embedding_string[1:-1], sep=' ') for embedding_string in embedding_strings]
+        nd_array = []
+        for embedding_string in embedding_strings:
+            embedding_string = embedding_string.strip("[]").split(",")
+            nd_string = np.array(embedding_string, dtype=np.float32)
+            nd_array.append(torch.from_numpy(nd_string).float())
+        self.embeddings = nd_array
+
         self.chunks = df['chunk_text'].tolist()
 
     # builds JSON response object with search results

@@ -14,6 +14,9 @@ Package deployment using conda package manager -
 - `conda install spacy` (install spacy package)
 - `conda install -c conda-forge sentence-transformers` (install sentence-transformers from conda-forge channel)
 - `python -m spacy download en_core_web_sm`  (download spacy model used for semantic chunking)
+- `conda install sqlalchemy`
+- `conda install tensorflow`
+- `conda install tf-keras`
 
 Package deployment using pip package manager - 
 - `pip install streamlit pandas requests` (install required libraries)
@@ -42,3 +45,8 @@ Other useful commands:
 Note:
 - For pytorch installation, we can go to `https://pytorch.org/` website and scroll down to `INSTALL PYTORCH` section which will show the command to run on your machine for installation based on your existing config.
 - For windows, conda environment should be created using python 3.11 to install pytorch and other packages.
+
+Docker commands:
+- Open terminal and navigate to root folder of the project
+- `docker build -t sqlite-container .` (to build docker container)
+- `docker run -it --rm sqlite-container` (run the container)
