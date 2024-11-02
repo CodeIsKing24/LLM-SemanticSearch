@@ -5,3 +5,4 @@ __pycache__/
 # output/
 # embedding/
 .DS_Store
+.idea
